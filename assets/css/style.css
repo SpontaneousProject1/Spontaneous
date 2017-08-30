@@ -1,7 +1,7 @@
-body{
-	background-color:blue;
+header {
+	color: #FFF;
 }
-.jumbotron{
-	margin-top: 10px;
-	text-align: center;
+
+.pagination {
+	align-content: center;
 }
