@@ -13,16 +13,17 @@ $.ajax({
     	$("#city").text(response.name);
     	$("#temp").text(response.main.temp);
     	$("#humidity").text(response.main.humidity);
-    	//$("#forcast").text(response.name);
-    	//$("#city").text(response.name);
     	
-    	//$("#weather").empty();
-    	//var lean = response.data.length
-    	//var i=0
-    	//for (i; i <lean; i++) {
+      console.log(response);
+    });
+
+
+    var queryURL2 = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=iOAdW7eCNCtfdlNHjxNyGQmSZ82vDYjL"
+
+    $.ajax({
+      url: queryURL2,
+      method: 'GET'
+    }).done(function(response) {
     	
-    		//var image = $("<img src='"+response.data[i].images.original.url+"'>");
-    		//$("#gif-view").append(image);
-    	//}
       console.log(response);
     });
