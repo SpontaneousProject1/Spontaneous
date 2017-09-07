@@ -1,6 +1,6 @@
 console.log("test")
 
-var weather = $("#weather")
+var weather = $("#addWeather")
 
 var zip ="44077"
 
