@@ -29,6 +29,7 @@ $.ajax({
       console.log(response);
     });
 
+
     //var queryURL3 = "THIS WILL BE FANDANGO API"
 
     //$.ajax({
