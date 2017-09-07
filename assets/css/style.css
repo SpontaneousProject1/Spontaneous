@@ -1,7 +1,73 @@
-header {
+body {
+	background: url(../images/background.png) no-repeat center center fixed;
+	background-color: black;
+	
+}
+
+h1 {
+	font-size: 65px;
 	color: #FFF;
 }
 
-.pagination {
-	align-content: center;
+h3 {
+	color: #234978;
+}
+
+#upcomingEvents {
+	text-align: center;
+}
+
+#mainContainer {
+	max-width: 1000px;
+}
+
+.bannerContainer {
+	max-width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.banner {
+	background: url(../images/banner.png);
+	height: 125px;
+}
+
+#mainColumn {
+	border: 2px;
+    padding: 20px;
+}
+
+#leftSidebar {
+	background-color: #234978;
+	padding: 10px 10px 10px 10px;
+}
+
+#mainContent {
+	background-color: #99c0ff;
+	border-width: 4px;
+	border-color: black;
+
+}
+
+.topHeader {
+	background-color: black;
+	text-align: center;
+	color: #FFF;
+	padding: 4px 0px 4px 0px;
+}
+
+p {
+	color: #d3d3d3;
+}
+
+h5 {
+	color: #FFF;
+}
+
+div.panel-body {
+	margin: 0px;
+}
+
+#weather {
+	color: #FFF;
 }

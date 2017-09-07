@@ -1,24 +1,29 @@
-function timer(){
- var now     = new Date,
-     hours   = now.getHours(),
-     ampm    = hours<12 ? ' AM' : ' PM',
-     minutes = now.getMinutes(),
-     seconds = now.getSeconds(),
-     t_str   = [hours-12, //otherwise: what's the use of AM/PM?
-                (minutes < 10 ? "0" + minutes : minutes),
-                (seconds < 10 ? "0" + seconds : seconds)]
-                 .join(':') + ampm;
- $('#time_span').html(t_str);
- setTimeout(timer,1000);
-}
+console.log("test")
 
-timer();
+var weather = $("#addWeather")
+
+var zip ="44077"
+
+var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=acaa23f8d409ee273187d2b9b0388e23&zip="+zip;
+
+$.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).done(function(response) {
+    	$("#city").text(response.name);
+    	$("#temp").text(response.main.temp);
+    	$("#humidity").text(response.main.humidity);
+    	
+      console.log(response);
+    });
 
 
-mapboxgl.accessToken = 'pk.eyJ1IjoidHlsZXJrYWRvdyIsImEiOiJjajZ6b3ZwZ3EyZmZjMnFuemFqYzVqMG92In0.luydkndZ-1V3mUQ8cgvlsQ';
-var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-    center: [-74.50, 40], // starting position [lng, lat]
-    zoom: 9 // starting zoom
-});
+    var queryURL2 = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=iOAdW7eCNCtfdlNHjxNyGQmSZ82vDYjL"
+
+    $.ajax({
+      url: queryURL2,
+      method: 'GET'
+    }).done(function(response) {
+    	
+      console.log(response);
+    });
