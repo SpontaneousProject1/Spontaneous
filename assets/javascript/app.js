@@ -28,3 +28,13 @@ $.ajax({
     	
       console.log(response);
     });
+
+    //var queryURL3 = "THIS WILL BE FANDANGO API"
+
+    //$.ajax({
+      //url: queryURL3,
+     // method: 'GET'
+  ////  }).done(function(response) {
+        
+    //  console.log(response);
+   // });
