@@ -13,6 +13,7 @@ $.ajax({
     	$("#city").text(response.name);
     	$("#temp").text(response.main.temp);
     	$("#humidity").text(response.main.humidity);
+        $("#forcast").text(response.weather[0].main);
     	
       console.log(response);
     });
