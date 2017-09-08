@@ -18,11 +18,11 @@ h3 {
 }
 
 #mainContainer {
-	max-width: 1000px;
+	max-width: 900px;
 }
 
 .bannerContainer {
-	max-width: 1000px;
+	max-width: 900px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -66,11 +66,12 @@ h5 {
 }
 
 div.panel-body {
-	margin: 0px;
+
 }
 
 #weather {
 	color: #FFF;
+
 }
 
 #map { 
