@@ -49,6 +49,11 @@ var ticketMaster = function(event, zip) {
         method: 'GET'
     }).done(function(response) {
 
+        //$("#").text(response.name);
+        //$("#").text(response.main.temp);
+        //$("#").text(response.main.humidity);
+        //$("#").text(response.weather[0].main);
+
             console.log(response);
         });
 };
