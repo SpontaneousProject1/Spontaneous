@@ -13,10 +13,6 @@ h3 {
 	color: #234978;
 }
 
-#upcomingEvents {
-	text-align: center;
-}
-
 #mainContainer {
 	max-width: 900px;
 }
@@ -69,8 +65,11 @@ div.panel-body {
 
 }
 
-#weather {
+#weather p {
 	color: #FFF;
+	font-size: 18px;
+	text-align: center;
+	padding: 20px;
 
 }
 
