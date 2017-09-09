@@ -4,7 +4,19 @@ console.log("test")
 
 //var zip = ""
 
+$("#go").on("click",function(event){
+    var zipInput = $("#zip_code").val();
+    if(zipInput){
+        weatherRequest(zipInput);
 
+
+    }
+    //console.log(zipInput)
+    
+    return false 
+
+
+});
 
 var weatherRequest = function(zip) {
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=acaa23f8d409ee273187d2b9b0388e23&zip=" + zip;
@@ -57,4 +69,3 @@ var ticketMaster = function(event, zip) {
 
 
 
-//$("#go").on("click", function(event)
