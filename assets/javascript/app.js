@@ -8,10 +8,11 @@ $("#go").on("click",function(event){
     var zipInput = $("#zip_code").val();
     if(zipInput){
         weatherRequest(zipInput);
+        ticketMaster(zipInput);
 
 
     }
-    //console.log(zipInput)
+    
     
     return false 
 
