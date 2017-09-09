@@ -1,0 +1,47 @@
+diff --git a/assets/javascript/app.js b/assets/javascript/app.js
+index d445e2d..2b33e6a 100644
+--- a/assets/javascript/app.js
++++ b/assets/javascript/app.js
+@@ -1,8 +1,10 @@
+ console.log("test")
+-
+ var weather = $("#addWeather")
+ 
+-var zip ="44077"
++//var zip ="44077"
++
++ var weatherRequest=  function(zip){
++
+ 
+ var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=acaa23f8d409ee273187d2b9b0388e23&zip="+zip;
+ 
+@@ -16,7 +18,12 @@ $.ajax({
+         $("#forcast").text(response.weather[0].main);
+     	
+       console.log(response);
+-    });
++    }); 
++}
++ 
++weatherRequest("44077");
++
++var ticketMaster= function(event){
+ 
+ 
+     var queryURL2 = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=iOAdW7eCNCtfdlNHjxNyGQmSZ82vDYjL"
+@@ -25,10 +32,14 @@ $.ajax({
+       url: queryURL2,
+       method: 'GET'
+     }).done(function(response) {
++        $("#concerts").text(response.name);
++        
+     	
+       console.log(response);
+-    });
+ 
++  
++    });
++}
+     //var queryURL3 = "THIS WILL BE FANDANGO API"
+ 
+     //$.ajax({
