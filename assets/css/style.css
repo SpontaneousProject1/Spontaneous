@@ -13,7 +13,7 @@ h3 {
 	color: #234978;
 }
 
-#mainContainer {
+.container {
 	max-width: 900px;
 }
 
