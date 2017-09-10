@@ -62,15 +62,15 @@ var ticketMaster = function(zip) {
 };
 
 
- weatherRequest(44106);
+weatherRequest(44114);
 
 
 var createHtml = function(currEvent) {
     console.log(currEvent)
     var eventDump = $("#eventdump")
     var eventName = $("<p>").text(currEvent.name)
-    var eventUrl =$("<p>").html("<a target=\"_blank\" href="+currEvent.url+">CLICK ME!</a>")
-    var eventDate =$("<p>").text(currEvent.dates.start.localDate)
+    var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>")
+    var eventDate = $("<p>").text(currEvent.dates.start.localDate)
 
     eventDump.append("<div>" + eventName.html() + " " + eventDate.html() + " " + eventUrl.html() + "</div>")
 
@@ -78,13 +78,12 @@ var createHtml = function(currEvent) {
 
 
 
+// var queryURL3 = FANDANGO API
 
-//var queryURL3 = "THIS WILL BE FANDANGO API"
+// $.ajax({
+//     url: queryURL3,
+//     method: 'GET'
+// }).done(function(response) {
 
-//$.ajax({
-//url: queryURL3,
-// method: 'GET'
-////  }).done(function(response) {
-
-//  console.log(response);
+//     console.log(response);
 // });
