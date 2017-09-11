@@ -67,10 +67,14 @@ weatherRequest(44114);
 
 var createHtml = function(currEvent) {
     console.log(currEvent)
-    var eventDump = $("#eventdump")
-    var eventName = $("<p>").text(currEvent.name)
-    var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>")
-    var eventDate = $("<p>").text(currEvent.dates.start.localDate)
+    var eventDump = $("#eventdump");
+    
+    var eventName = $("<li>").text(currEvent.name);
+    $("li").addClass("important");
+    
+    var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>");
+    
+    var eventDate = $("<p>").text(currEvent.dates.start.localDate);
 
     eventDump.append("<div>" + eventName.html() + " " + eventDate.html() + " " + eventUrl.html() + "</div>")
 

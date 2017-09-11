@@ -34,9 +34,19 @@
                     </span>
             </div>
         </div>
-        <div class="col-xs-12 col-md-9">
+        <div class="col-xs-12 col-md-6">
             <div id="weather">
                 <p>City: <span id="city"></span> | Temp: <span id="temp"></span>&#8457; | Humidity: <span id="humidity"></span>% | Forecast: <span id="forcast"></span></p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3" id="mainColumn">
+            <button type="button" class="btn btn-default" id="signUp" data-toggle="modal" data-target=".bs-example-modal-sm">Sign Up for Our Newsletter</button>
+            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        ...
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -48,7 +58,8 @@
             <div class="panel-body">
                 <div class="col-xs-12 col-md-12">
                     <div class="panel panel-default">
-                        <div class="panel-body" id="eventdump">
+                        <div class="panel-body">
+                            <span id="eventdump"></span>
                         </div>
                     </div>
                 </div>
