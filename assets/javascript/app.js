@@ -97,13 +97,13 @@ var createHtml = function(currEvent) {
 
     eventDump.append(eventDiv);
     
-    // var eventName = $("<li>").text(currEvent.name);
-    // $("li").addClass("important");
-    
-    // var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>");
-    
-    // var eventDate = $("<p>").text(currEvent.dates.start.localDate);
-
-    // eventDump.append("<div>" + eventName.html() + " " + eventDate.html() + " " + eventUrl.html() + "</div>")
-
 };
+
+$(document).ready(function () {
+var modal = document.getElementById('initialModal');
+var btn = document.getElementById("signUp");
+btn.addEventListener("click", function() {
+    var modal = document.getElementById("initialModal");
+    modal.style.display = "block";
+});
+});
