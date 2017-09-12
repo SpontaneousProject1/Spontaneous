@@ -74,15 +74,36 @@ weatherRequest(44114);
 
 var createHtml = function(currEvent) {
     console.log(currEvent)
-    var eventDump = $("#eventdump");
     
-    var eventName = $("<li>").text(currEvent.name);
-    $("li").addClass("important");
-    
-    var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>");
-    
-    var eventDate = $("<p>").text(currEvent.dates.start.localDate);
+    var eventDiv = $("<div>");
 
-    eventDump.append("<div>" + eventName.html() + " " + eventDate.html() + " " + eventUrl.html() + "</div>")
+    var eventName = $("<span>");
+        eventName.text(currEvent.name);
+        eventName.addClass("eventName");
+
+    var eventUrl = $("<a>");
+        eventUrl.text(currEvent.url);
+        eventUrl.addClass("eventUrl");
+
+    var eventDate = $("<span>");
+        eventDate.text(currEvent.dates.start.localDate);
+        eventDate.addClass("eventDate");
+
+    var eventDump = $("#eventdump");
+        eventDiv.append(eventName);
+        eventDiv.append("<br>");
+        eventName.append(eventUrl);
+        eventUrl.append(eventDate);
+
+    eventDump.append(eventDiv);
+    
+    // var eventName = $("<li>").text(currEvent.name);
+    // $("li").addClass("important");
+    
+    // var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>");
+    
+    // var eventDate = $("<p>").text(currEvent.dates.start.localDate);
+
+    // eventDump.append("<div>" + eventName.html() + " " + eventDate.html() + " " + eventUrl.html() + "</div>")
 
 };
