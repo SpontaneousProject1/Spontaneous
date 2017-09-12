@@ -1,15 +1,33 @@
+$(document).ready(
+    function() {
+
+
+    });
 console.log("test")
 
-//var weather = $("#addWeather")
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyDiXtIOye3J5wuY1rBxqb-dPWJLpn7AL10",
+    authDomain: "spontaneous-73a1d.firebaseapp.com",
+    databaseURL: "https://spontaneous-73a1d.firebaseio.com",
+    projectId: "spontaneous-73a1d",
+    //storageBucket: "",
+    messagingSenderId: "1095990185424"
+};
+firebase.initializeApp(config);
 
-//var zip = ""
+
+var city = firebase.database();
 
 $("#go").on("click", function(event) {
     var zipInput = $("#zip_code").val();
     if (zipInput) {
         weatherRequest(zipInput);
         ticketMaster(zipInput);
-        $("#eventdump").html("")
+        $("#eventdump").html("");
+        var cityData = $("#zip_code").val().trim();
+        console.log(cityData);
+        city.ref().push(cityData);
 
 
     }
@@ -21,7 +39,7 @@ $("#go").on("click", function(event) {
 });
 
 var weatherRequest = function(zip) {
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=acaa23f8d409ee273187d2b9b0388e23&q="+$("#zip_code").val()+",US";
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=acaa23f8d409ee273187d2b9b0388e23&q=" + $("#zip_code").val() + ",US";
     console.log(queryURL);
 
 
@@ -45,24 +63,23 @@ var weatherRequest = function(zip) {
 
 var ticketMaster = function(zip) {
 
-    var queryURL2 = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=iOAdW7eCNCtfdlNHjxNyGQmSZ82vDYjL&city="+$("#zip_code").val();
+    var queryURL2 = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=iOAdW7eCNCtfdlNHjxNyGQmSZ82vDYjL&city=" + $("#zip_code").val();
     $.ajax({
         url: queryURL2,
         method: 'GET'
     }).done(function(response) {
         console.log(response);
-        if(!response.page.totalElements){
+        if (!response.page.totalElements) {
             $("#eventdump").html("<p class=\"noresult\"> NO RESULTS FOUND,PLEASE TRY CLOSEST MAJOR CITY</p>")
+        } else {
+
+            response._embedded.events.forEach(function(event) {
+                createHtml(event)
+
+
+
+            });
         }
-        else{
-
-        response._embedded.events.forEach(function(event) {
-            createHtml(event)
-
-
-
-        });
-    }
 
         console.log(response);
     });
@@ -75,12 +92,12 @@ weatherRequest(44114);
 var createHtml = function(currEvent) {
     console.log(currEvent)
     var eventDump = $("#eventdump");
-    
+
     var eventName = $("<li>").text(currEvent.name);
     $("li").addClass("important");
-    
+
     var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>");
-    
+
     var eventDate = $("<p>").text(currEvent.dates.start.localDate);
 
     eventDump.append("<div>" + eventName.html() + " " + eventDate.html() + " " + eventUrl.html() + "</div>")
