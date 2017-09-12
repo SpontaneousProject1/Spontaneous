@@ -16,8 +16,34 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var cities= []
 
 var city = firebase.database();
+
+ var dataLogToPage = function(){
+    for (var i = 0; i <cities.length; i++) {
+       cities[i]
+
+      var buttons = $("<button>").text(cities[i])
+      $("#recentCities").
+
+
+    }
+
+
+}
+
+
+city.on("value",function(event){
+    $("#recentCities").reset();
+    for (var i = 0; i <cities.length; i++) {
+       cities[i]
+
+      var buttons = $("<button>").text(cities[i])
+      $("#recentCities").append(buttons);
+
+}
+});
 
 $("#go").on("click", function(event) {
     var zipInput = $("#zip_code").val();
@@ -27,10 +53,12 @@ $("#go").on("click", function(event) {
         $("#eventdump").html("");
         var cityData = $("#zip_code").val().trim();
         console.log(cityData);
-        city.ref().push(cityData);
+        cities.push(cityData);
 
 
     }
+
+     city.ref().set(cities)
 
 
     return false
