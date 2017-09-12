@@ -9,15 +9,56 @@ h1 {
 	color: #FFF;
 }
 
+h3 {
+	color: #234978;
+}
+
+p {
+	color: #d3d3d3;
+}
+
+h5 {
+	color: #FFF;
+}
+
+div.panel-body {
+	font-size: 24px;
+}
+
+.noresult{
+	font-size: 16px;
+	color:red;
+}
+
+.eventName {
+	color: #234978;
+	font-size: 20px;
+	font-weight: 3px;
+	margin: 15px;
+	padding: 15px;
+}
+
+.eventUrl {
+	color: #234978;
+	font-size: 14px;
+}
+
+.eventDate {
+	color: purple;
+	font-size: 14px;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.5s;
+    border-radius: 5px; /* 5px rounded corners */
+    margin: 15px;
+}
+
 .directions h2 {
 	font-size: 35px;
 	color: #FFF;
 	text-align: center;
-
-}
-
-h3 {
-	color: #234978;
 }
 
 .container {
@@ -33,6 +74,15 @@ h3 {
 .banner {
 	background: url(../images/banner.png);
 	height: 125px;
+}
+
+.topHeader {
+	background-color: black;
+	text-align: center;
+	color: #FFF;
+	padding: 6px;
+	margin-top: 2px;
+ 
 }
 
 #mainColumn1, #mainColumn2 {
@@ -54,27 +104,6 @@ h3 {
 
 }
 
-.topHeader {
-	background-color: black;
-	text-align: center;
-	color: #FFF;
-	padding: 6px;
-	margin-top: 2px;
- 
-}
-
-p {
-	color: #d3d3d3;
-}
-
-h5 {
-	color: #FFF;
-}
-
-div.panel-body {
-	font-size: 24px;
-}
-
 #weather p {
 	color: #FFF;
 	font-size: 16px;
@@ -85,28 +114,4 @@ div.panel-body {
 
 #map { 
 	position:relative; top:0; bottom:0; width:100%; height: 400px; 
-}
-
-.noresult{
-	font-size: 16px;
-	color:red;
-}
-
-.eventName {
-	color: green;
-	font-size: 30px;
-}
-
-.eventUrl {
-	color: yellow;
-	font-size: 16px;
-}
-
-.eventDate {
-	color: purple;
-	font-size: 20px;
-}
-
-.clearFix {
-	
 }
