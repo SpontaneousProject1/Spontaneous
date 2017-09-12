@@ -52,7 +52,7 @@ var ticketMaster = function(zip) {
     }).done(function(response) {
         console.log(response);
         if(!response.page.totalElements){
-            $("#eventdump").html("<p class=\"noresult\"> NO RESULTS FOUND,PLEASE TRY CLOSEST MAJOR CITY</p>")
+            $("#eventdump").html("<p class=\"noresult\"> NO RESULTS FOUND.  PLEASE TRY CLOSEST MAJOR CITY.</p>")
         }
         else{
 
@@ -86,15 +86,3 @@ var createHtml = function(currEvent) {
     eventDump.append("<div>" + eventName.html() + " " + eventDate.html() + " " + eventUrl.html() + "</div>")
 
 };
-
-
-
-// var queryURL3 = FANDANGO API
-
-// $.ajax({
-//     url: queryURL3,
-//     method: 'GET'
-// }).done(function(response) {
-
-//     console.log(response);
-// });

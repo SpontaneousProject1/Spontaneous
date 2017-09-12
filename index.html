@@ -9,26 +9,27 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <title>Spontaneous</title>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet'/>
+    <meta charset="UTF-8">
 </head>
-<header>
-    <div class="topHeader">
-        <p>Waited until the last minute and now looking for something to do? We've got you covered!</p>
-    </div>
-    <div class="banner">
-        <div class="bannerContainer">
-            <div class="col-xs-12 col-md-12">
-                <h1>Spontaneous</h1>
-            </div>
-        </div>
-    </div>
-</header>
 
 <body>
+    <header>
+        <div class="topHeader">
+            <p>Waited until the last minute and now looking for something to do? We've got you covered!</p>
+        </div>
+        <div class="banner">
+            <div class="bannerContainer">
+                <div class="col-xs-12 col-md-12">
+                    <h1>Spontaneous</h1>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="container">
-        <div class="col-xs-12 col-md-3" id="mainColumn">
+        <div class="col-xs-12 col-md-3" id="mainColumn1">
             <div class="input-group">
-                <input id="zip_code" type="text" class="form-control" placeholder="Your Zip Code">
+                <input id="zip_code" type="text" class="form-control" placeholder="Nearest Major City">
                 <span class="input-group-btn">
                         <button class="btn btn-default" type="button" id="go">Go!</button>
                     </span>
@@ -39,7 +40,7 @@
                 <p>City: <span id="city"></span> | Temp: <span id="temp"></span>&#8457; | Humidity: <span id="humidity"></span>% | Forecast: <span id="forcast"></span></p>
             </div>
         </div>
-        <div class="col-xs-12 col-md-3" id="mainColumn">
+        <div class="col-xs-12 col-md-3" id="mainColumn2">
             <button type="button" class="btn btn-default" id="signUp" data-toggle="modal" data-target=".bs-example-modal-sm">Sign Up for Our Newsletter</button>
             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                 <div class="modal-dialog modal-sm" role="document">
@@ -65,7 +66,10 @@
                 </div>
             </div>
         </div>
-        <div id="map"></div>
+        <div class="directions">
+            <h2>Need Directions?  Try below!</h2>
+            <div id="map"></div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -75,7 +79,5 @@
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
     <script src="assets/javascript/appto.js"></script>
 </body>
-<footer>
-</footer>
 
 </html>

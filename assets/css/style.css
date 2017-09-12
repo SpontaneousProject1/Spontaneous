@@ -9,16 +9,23 @@ h1 {
 	color: #FFF;
 }
 
+.directions h2 {
+	font-size: 35px;
+	color: #FFF;
+	text-align: center;
+
+}
+
 h3 {
 	color: #234978;
 }
 
 .container {
-	max-width: 900px;
+	max-width: 1100px;
 }
 
 .bannerContainer {
-	max-width: 900px;
+	max-width: 1100px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -28,10 +35,11 @@ h3 {
 	height: 125px;
 }
 
-#mainColumn {
+#mainColumn1, #mainColumn2 {
 	border: 2px;
     padding: 20px;
 }
+
 
 #leftSidebar {
 	background-color: #234978;
@@ -80,5 +88,6 @@ div.panel-body {
 }
 
 .noresult{
+	font-size: 16px;
 	color:red;
 }
