@@ -21,7 +21,8 @@ $("#go").on("click", function(event) {
 });
 
 var weatherRequest = function(zip) {
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=acaa23f8d409ee273187d2b9b0388e23&zip=" + zip;
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=acaa23f8d409ee273187d2b9b0388e23&q="+$("#zip_code").val()+",US";
+    console.log(queryURL);
 
 
 
@@ -44,18 +45,24 @@ var weatherRequest = function(zip) {
 
 var ticketMaster = function(zip) {
 
-    var queryURL2 = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=iOAdW7eCNCtfdlNHjxNyGQmSZ82vDYjL&radius=50&units=miles&postalCode=" + zip;
+    var queryURL2 = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=iOAdW7eCNCtfdlNHjxNyGQmSZ82vDYjL&city="+$("#zip_code").val();
     $.ajax({
         url: queryURL2,
         method: 'GET'
     }).done(function(response) {
         console.log(response);
+        if(!response.page.totalElements){
+            $("#eventdump").html("<p class=\"noresult\"> NO RESULTS FOUND,PLEASE TRY CLOSEST MAJOR CITY</p>")
+        }
+        else{
+
         response._embedded.events.forEach(function(event) {
             createHtml(event)
 
 
 
         });
+    }
 
         console.log(response);
     });
