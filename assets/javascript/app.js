@@ -1,123 +1,199 @@
+console.log("test");
+
+                 var createHtml = function(currEvent) {
+                        console.log(currEvent);
+                        
+                        var eventDump = $("#eventdump");
+
+                        var eventName = $("<li>").text(currEvent.name);
+                        $("li").addClass("important");
+
+                        var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>");
+
+                        var eventDate = $("<p>").text(currEvent.dates.start.localDate);
+
+
+                        var eventDiv = $("<ul>");
+                        eventDiv.addClass("card");
+                        // eventDiv.addClass("clearFix");
+
+                        var eventName = $("<li>");
+                        eventName.text(currEvent.name);
+                        eventName.addClass("eventName");
+
+                        var eventUrl = $("<li>");
+                        eventUrl.text(currEvent.url);
+                        eventUrl.addClass("eventUrl");
+                        eventUrl.html("<a target=\"_blank\" href=" + currEvent.url + ">Click Here for Tickets!</a>");
+
+                        var eventDate = $("<li>");
+                        eventDate.text(currEvent.dates.start.localDate);
+                        eventDate.addClass("eventDate");
+
+                        var eventDump = $("#eventdump");
+                        eventDiv.append(eventName);
+                        // eventDiv2.append(eventDate);
+                        // eventDiv3.append(eventUrl);
+
+                        eventName.append(eventDate);
+                        eventDate.append(eventUrl);
+
+                        eventDump.append(eventDiv);
+
+                    };
+
+
+
+// Initialize Firebase
 var config = {
-    apiKey: "AIzaSyAjKQY64wTJYgWJCwi9pOc4l5dPyrXWGKE",
-    authDomain: "spontaneous-f0965.firebaseapp.com",
-    databaseURL: "https://spontaneous-f0965.firebaseio.com",
-    projectId: "spontaneous-f0965",
-    storageBucket: "spontaneous-f0965.appspot.com",
-    messagingSenderId: "755574837356"
-  };
-  firebase.initializeApp(config);
+    apiKey: "AIzaSyDiXtIOye3J5wuY1rBxqb-dPWJLpn7AL10",
+    authDomain: "spontaneous-73a1d.firebaseapp.com",
+    databaseURL: "https://spontaneous-73a1d.firebaseio.com",
+    projectId: "spontaneous-73a1d",
+    //storageBucket: "",
+    messagingSenderId: "1095990185424"
+};
+firebase.initializeApp(config);
 
-  var database = firebase.database();
+var form = firebase.database();
 
-console.log("test")
 
-//var weather = $("#addWeather")
+$("#submit").on("click", function(event) {
 
-//var zip = ""
+    var firstNameData = $("#exampleFirstName").val().trim();
+    var lastNameData = $("#exampleLastName").val().trim();
+    var emailData = $("#exampleInputEmail1").val().trim();
 
-$("#go").on("click", function(event) {
-    var zipInput = $("#zip_code").val();
-    if (zipInput) {
-        weatherRequest(zipInput);
-        ticketMaster(zipInput);
-        $("#eventdump").html("")
+    var formData = {
 
-    }
+        FirstName: firstNameData,
+        LastName: lastNameData,
+        Email: emailData
+    };
 
-    return false
+    form.ref().push(formData);
+    console.log(formData);
 
+
+    //$("#exampleFirstName").val("");
+    //$("#exampleLastName").val("");
+    //$("#exampleInputEmail1").val("");
+
+
+    //return false
 });
 
-var weatherRequest = function(zip) {
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=acaa23f8d409ee273187d2b9b0388e23&q=" + $("#zip_code").val() + ",US";
-    console.log(queryURL);
+// //var cities = []
+
+// //var city = firebase.database();
+
+
+// //city.ref().on("value", function(event) {
+//             console.log("data change")
+//             $("#recentCities").empty();
+
+//             for (var i = 0; i < cities.length; i++) {
+                
+//                 console.log( cities[i]);
+
+//                 var buttons = $("<button>").text(cities[i])
+//                 $("#recentCities").append(buttons);
+
+//             }
+//         });
+
+// var dataLogToPage = function() {
+        
+//         for (var i = 0; i < cities.length; i++) {
+            
+
+//             var buttons = $("<button>").text(cities[i]);
+//         }
+            
+// };
 
 
 
-    $.ajax({
-        url: queryURL,
-        method: 'GET'
-    }).done(function(response) {
-        $("#city").text(response.name);
-        $("#temp").text(response.main.temp);
-        $("#humidity").text(response.main.humidity);
-        $("#forcast").text(response.weather[0].main);
+                    var city = firebase.database();
 
-        console.log(response);
-    });
-};
+                    $("#go").on("click", function(event) {
+                        var zipInput = $("#zip_code").val();
+                        if (zipInput) {
+                            weatherRequest(zipInput);
+                            ticketMaster(zipInput);
+                            $("#eventdump").html("");
+                            var cityData = $("#zip_code").val().trim();
+                            console.log(cityData);
+                            city.ref().push(cityData);
+
+                        }
+
+                        return false
+
+                    });
+
+                    var weatherRequest = function(zip) {
+                        var queryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=acaa23f8d409ee273187d2b9b0388e23&q=" + $("#zip_code").val() + ",US";
+                        console.log(queryURL);
+
+
+
+                        $.ajax({
+                            url: queryURL,
+                            method: 'GET'
+                        }).done(function(response) {
+                            $("#city").text(response.name);
+                            $("#temp").text(response.main.temp);
+                            $("#humidity").text(response.main.humidity);
+                            $("#forcast").text(response.weather[0].main);
+
+                            console.log(response);
+                        });
+                    };
 
 
 
 
 
-var ticketMaster = function(zip) {
+                    var ticketMaster = function(zip) {
 
-    var queryURL2 = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=iOAdW7eCNCtfdlNHjxNyGQmSZ82vDYjL&city=" + $("#zip_code").val();
-    $.ajax({
-        url: queryURL2,
-        method: 'GET'
-    }).done(function(response) {
-        console.log(response);
-        if (!response.page.totalElements) {
-            $("#eventdump").html("<p class=\"noresult\"> Your search returned no responses.  Please choose the closest major city.</p>")
-        } else {
+                        var queryURL2 = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=iOAdW7eCNCtfdlNHjxNyGQmSZ82vDYjL&city=" + $("#zip_code").val();
+                        $.ajax({
+                            url: queryURL2,
+                            method: 'GET'
+                        }).done(function(response) {
+                            console.log(response);
+                            if (!response.page.totalElements) {
 
-            response._embedded.events.forEach(function(event) {
-                createHtml(event)
-            });
-        }
+                                $("#eventdump").html("<p class=\"noresult\"> NO RESULTS FOUND,PLEASE TRY CLOSEST MAJOR CITY</p>")
+                            } else {
 
-        console.log(response);
-    });
-};
+                                response._embedded.events.forEach(function(event) {
+                                    createHtml(event)
 
-weatherRequest(44114);
+                                });
+                            }
 
-var createHtml = function(currEvent) {
-    console.log(currEvent)
+                            console.log(response);
+                        });
+                    };
 
-    var eventDiv = $("<ul>");
-    eventDiv.addClass("card");
-    // eventDiv.addClass("clearFix");
+                    weatherRequest(44114);
 
-    var eventName = $("<li>");
-    eventName.text(currEvent.name);
-    eventName.addClass("eventName");
+   
 
-    var eventUrl = $("<li>");
-    eventUrl.text(currEvent.url);
-    eventUrl.addClass("eventUrl");
-    eventUrl.html("<a target=\"_blank\" href=" + currEvent.url + ">Click Here for Tickets!</a>");
+                    $(document).ready(function() {
 
-    var eventDate = $("<li>");
-    eventDate.text(currEvent.dates.start.localDate);
-    eventDate.addClass("eventDate");
+                        var modal = document.getElementById('initialModal');
+                        var btn = document.getElementById("signUp");
+                        btn.addEventListener("click", function() {
+                            var modal = document.getElementById("initialModal");
+                            modal.style.display = "block";
+                        });
+                    });
 
-    var eventDump = $("#eventdump");
-    eventDiv.append(eventName);
-    // eventDiv2.append(eventDate);
-    // eventDiv3.append(eventUrl);
-
-    eventName.append(eventDate);
-    eventDate.append(eventUrl);
-
-    eventDump.append(eventDiv);
-
-};
-
-$(document).ready(function() {
-    var modal = document.getElementById('initialModal');
-    var btn = document.getElementById("signUp");
-    btn.addEventListener("click", function() {
-        var modal = document.getElementById("initialModal");
-        modal.style.display = "block";
-    });
-});
-
-// var eventName = $("<li>").text(currEvent.name);
-// $("li").addClass("important");
-// var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>");
-// var eventDate = $("<p>").text(currEvent.dates.start.localDate);
-// eventDump.append("<div>" + eventName.html() + " " + eventDate.html() + " " + eventUrl.html() + "</div>")
+                    // var eventName = $("<li>").text(currEvent.name);
+                    // $("li").addClass("important");
+                    // var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>");
+                    // var eventDate = $("<p>").text(currEvent.dates.start.localDate);
+                    // eventDump.append("<div>" + eventName.html() + " " + eventDate.html() + " " + eventUrl.html() + "</div>")
