@@ -25,6 +25,10 @@ div.panel-body {
 	font-size: 24px;
 }
 
+.recentCities p {
+	color
+}
+
 .noresult{
 	font-size: 16px;
 	color:red;
@@ -76,13 +80,19 @@ div.panel-body {
 	height: 125px;
 }
 
-.topHeader {
+.topHeader, .footer {
 	background-color: black;
 	text-align: center;
 	color: #FFF;
 	padding: 6px;
 	margin-top: 2px;
  
+}
+
+.footer {
+	max-height: 150px;
+	background-color: black;
+	color: #FFF;
 }
 
 #mainColumn1, #mainColumn2 {
