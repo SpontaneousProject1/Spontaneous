@@ -1,23 +1,23 @@
-<<<<<<< HEAD
+//<<<<<<< HEAD
 $(document).ready(
     function() {
 
 
     });
-=======
-var config = {
-    apiKey: "AIzaSyAjKQY64wTJYgWJCwi9pOc4l5dPyrXWGKE",
-    authDomain: "spontaneous-f0965.firebaseapp.com",
-    databaseURL: "https://spontaneous-f0965.firebaseio.com",
-    projectId: "spontaneous-f0965",
-    storageBucket: "spontaneous-f0965.appspot.com",
-    messagingSenderId: "755574837356"
-  };
-  firebase.initializeApp(config);
+//=======
+//var config = {
+    //apiKey: "AIzaSyAjKQY64wTJYgWJCwi9pOc4l5dPyrXWGKE",
+    //authDomain: "spontaneous-f0965.firebaseapp.com",
+    //databaseURL: "https://spontaneous-f0965.firebaseio.com",
+    //projectId: "spontaneous-f0965",
+    //storageBucket: "spontaneous-f0965.appspot.com",
+    //messagingSenderId: "755574837356"
+  //};
+  //firebase.initializeApp(config);
 
-  var database = firebase.database();
+  //var database = firebase.database();
 
->>>>>>> 45bd559f534c11b017c00ec927d02d6286313b80
+//>>>>>>> 45bd559f534c11b017c00ec927d02d6286313b80
 console.log("test")
 
 // Initialize Firebase
@@ -82,22 +82,13 @@ var ticketMaster = function(zip) {
     }).done(function(response) {
         console.log(response);
         if (!response.page.totalElements) {
-<<<<<<< HEAD
+
             $("#eventdump").html("<p class=\"noresult\"> NO RESULTS FOUND,PLEASE TRY CLOSEST MAJOR CITY</p>")
         } else {
 
             response._embedded.events.forEach(function(event) {
                 createHtml(event)
 
-
-
-=======
-            $("#eventdump").html("<p class=\"noresult\"> Your search returned no responses.  Please choose the closest major city.</p>")
-        } else {
-
-            response._embedded.events.forEach(function(event) {
-                createHtml(event)
->>>>>>> 45bd559f534c11b017c00ec927d02d6286313b80
             });
         }
 
@@ -109,7 +100,7 @@ weatherRequest(44114);
 
 var createHtml = function(currEvent) {
     console.log(currEvent)
-<<<<<<< HEAD
+//IS THIS WHERE YOU STYLED????//
     var eventDump = $("#eventdump");
 
     var eventName = $("<li>").text(currEvent.name);
@@ -118,8 +109,7 @@ var createHtml = function(currEvent) {
     var eventUrl = $("<p>").html("<a target=\"_blank\" href=" + currEvent.url + ">CLICK ME!</a>");
 
     var eventDate = $("<p>").text(currEvent.dates.start.localDate);
-=======
->>>>>>> 45bd559f534c11b017c00ec927d02d6286313b80
+
 
     var eventDiv = $("<ul>");
     eventDiv.addClass("card");
