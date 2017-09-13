@@ -17,7 +17,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var form = firebase.database()
+var form = firebase.database();
 
 
 $("#submit").on("click",function(event){
@@ -35,6 +35,16 @@ var formData = {
     
     form.ref().push(formData);
     console.log(formData);
+
+
+ //$("#exampleFirstName").val("");
+ //$("#exampleLastName").val("");
+ //$("#exampleInputEmail1").val("");
+
+
+    //return false
+
+
 
 
 
