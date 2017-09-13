@@ -1,23 +1,9 @@
-//<<<<<<< HEAD
 $(document).ready(
     function() {
 
 
     });
-//=======
-//var config = {
-    //apiKey: "AIzaSyAjKQY64wTJYgWJCwi9pOc4l5dPyrXWGKE",
-    //authDomain: "spontaneous-f0965.firebaseapp.com",
-    //databaseURL: "https://spontaneous-f0965.firebaseio.com",
-    //projectId: "spontaneous-f0965",
-    //storageBucket: "spontaneous-f0965.appspot.com",
-    //messagingSenderId: "755574837356"
-  //};
-  //firebase.initializeApp(config);
 
-  //var database = firebase.database();
-
-//>>>>>>> 45bd559f534c11b017c00ec927d02d6286313b80
 console.log("test")
 
 // Initialize Firebase
@@ -30,6 +16,29 @@ var config = {
     messagingSenderId: "1095990185424"
 };
 firebase.initializeApp(config);
+
+var form = firebase.database()
+
+
+$("#submit").on("click",function(event){
+    
+var firstNameData = $("#exampleFirstName").val().trim();
+var lastNameData = $("#exampleLastName").val().trim();
+var emailData = $("#exampleInputEmail1").val().trim();
+
+var formData = {
+
+    FirstName: firstNameData,
+    LastName: lastNameData,
+    Email: emailData
+  };
+    
+    form.ref().push(formData);
+    console.log(formData);
+
+
+
+});
 
 
 var city = firebase.database();
